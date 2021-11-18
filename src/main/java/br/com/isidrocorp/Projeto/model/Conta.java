@@ -9,6 +9,24 @@ public class Conta {
 	@Id
 	@Column(name = "numero")
 	private int numero;
+	@Column(name = "agencia")
+	private int agencia;
+	@Column(name = "tipo")
+	private int tipo;
+	@Column(name = "saldo")
+	private double saldo;
+	
+	@ManyToOne
+	@JoinColumn(name="id_titular")
+	private Cliente titular;
+	
+	public Cliente getTitular() {
+		return titular;
+	}
+
+	public void setTitular(Cliente titular) {
+		this.titular = titular;
+	}
 
 	public int getNumero() {
 		return numero;
@@ -42,10 +60,4 @@ public class Conta {
 		this.saldo = saldo;
 	}
 
-	@Column(name = "agencia")
-	private int agencia;
-	@Column(name = "tipo")
-	private int tipo;
-	@Column(name = "saldo")
-	private double saldo;
 }
